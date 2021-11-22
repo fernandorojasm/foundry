@@ -59,8 +59,6 @@ jobs:
         run: cargo build --bin forge
 
       - name: Test ${{ matrix.repo }}
-        run: ./test.sh ${{ matrix.repo }}
+        run: FORGE_BIN=../target/debug/forge; ./test.sh ${{ matrix.repo }}
         working-directory:
           ./integration-tests
-        env:
-          FORGE_BIN: ./target/debug/forge
